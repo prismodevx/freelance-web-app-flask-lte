@@ -62,7 +62,7 @@ function getTabla() {
 
 $(document).on('click', '.restaurar', function () {
     Swal.fire({
-        title: 'Eliminar registro',
+        title: 'Restaurar registro',
         text: "¿Está seguro de querer restaurar este registro?",
         icon: 'warning',
         showCancelButton: true,
