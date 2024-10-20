@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema</title>
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/img/favicon.ico') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/adminlte.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}">
+  <style>
+    .sidebar-dark-blue {
+      background: #455279 !important;
+    }
+
+    #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .spinner-border {
+        width: 3rem;
+        height: 3rem;
+    }
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div id="loader" style="display: none;">
+  <div class="spinner-border" role="status"></div>
+</div>
+<div class="wrapper">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <aside class="main-sidebar sidebar-dark-blue elevation-4">
+    <div class="m-2">
+      <img src="{{ url_for('static', filename='assets/img/empresa.jpeg') }}" alt="empresa" style="max-width: 100%">
+    </div>
+    <div class="sidebar">
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li id="liSistema" class="nav-item">
+            <a id="aSistema" href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>Sistema<i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a id="liRegistros" href="{{ url_for('registros') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registros</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="liRemovidos" href="{{ url_for('removidos') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Papelera</p>
+                </a>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </aside>
+
+  <div class="content-wrapper">
+    <div class="content-header"></div>
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/adminlte.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sweetalert2@11.js') }}"></script>
+
+{% block scripts %}
+{% endblock %}
+</body>
+</html>
