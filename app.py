@@ -11,7 +11,6 @@ db = {
     'database': 'sistemav1'
 }
 
-
 @app.route('/')
 def registros():
     return render_template('registros.html')
